@@ -45,6 +45,9 @@ public class GreetingController {
         PageHelper.startPage(1,20);
         List<User> users = userMapper.selectAll();
         j.put("usersm", new PageInfo(users));
+        PageHelper.startPage(2,20);
+        List<User> users2 = userMapper.getUsers();
+        j.put("sssssss", new PageInfo(users2));
         /*String sql="select * from sys_user";
         RowMapper<SysUser> rowMapper=new BeanPropertyRowMapper<SysUser>(SysUser.class);
         List users= jdbcTemplate.query(sql, rowMapper);

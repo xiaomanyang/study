@@ -1,6 +1,7 @@
 package com.sboot.study;
 
 import com.sboot.study.redis.RedisService;
+import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -18,6 +19,7 @@ import java.util.Date;
 @SpringBootApplication
 @EnableScheduling
 @MapperScan("com.sboot.study.dao")
+@Slf4j
 public class StudyApplication implements CommandLineRunner {
 
     @Autowired
@@ -37,9 +39,16 @@ public class StudyApplication implements CommandLineRunner {
         return new SimpleDateFormat ("HH:mm:ss");
     }
 
+    /**
+     * 服务启动后自动执行的方法
+     * @param args
+     */
+
     @Override
     public void run(String... args) {
         System.out.println(">>>>>>>>>>>>>>>服务启动成功<<<<<<<<<<<<<");
+        log.debug("-------------------------log");
+        log.info("hhhhhhhhhhhhhhhhhhh");
         redisService.setValue();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

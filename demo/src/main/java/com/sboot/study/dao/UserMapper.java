@@ -1,7 +1,12 @@
 package com.sboot.study.dao;
 
 import com.sboot.study.domain.User;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.ResultMap;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -34,8 +39,10 @@ public interface UserMapper {
     @ResultMap("com.sboot.study.dao.UserMapper.BaseResultMap")
     User selectByPrimaryKey(Integer id);
 
-//    @Select("select * from wsjc_user")
     List<User> selectAll();
+
+    @Select("select * from wsjc_user")
+    List<User> getUsers();
 
     int updateByPrimaryKeySelective(User record);
 
