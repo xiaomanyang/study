@@ -50,7 +50,7 @@
             XMLMAPPER:所有的方法都在XML中，接口调用依赖XML文件 -->
         <javaClientGenerator targetPackage="com.sboot.study.dao"
                              targetProject="src/main/java"
-                             type="ANNOTATEDMAPPER">
+                             type="MIXEDMAPPER">
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
         <!--生成对应表及类名-->

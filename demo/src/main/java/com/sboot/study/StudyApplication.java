@@ -1,6 +1,7 @@
 package com.sboot.study;
 
 import com.sboot.study.redis.RedisService;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,6 +17,7 @@ import java.util.Date;
 
 @SpringBootApplication
 @EnableScheduling
+@MapperScan("com.sboot.study.dao")
 public class StudyApplication implements CommandLineRunner {
 
     @Autowired

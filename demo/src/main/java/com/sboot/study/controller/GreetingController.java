@@ -37,6 +37,7 @@ public class GreetingController {
     @RequestMapping("/users")
     public JSONObject users(){
         JSONObject j = new JSONObject();
+        j.put("user", userMapper.selectByPrimaryKey(1));
         j.put("usersm", userMapper.selectAll());
         /*String sql="select * from sys_user";
         RowMapper<SysUser> rowMapper=new BeanPropertyRowMapper<SysUser>(SysUser.class);
