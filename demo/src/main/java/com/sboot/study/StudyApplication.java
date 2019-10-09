@@ -41,7 +41,7 @@ public class StudyApplication implements CommandLineRunner {
         redisService.setValue();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = (Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/bems?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC",
+            Connection connection = (Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/wsjc?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC",
                     "root", "root");
             Statement statement = connection.createStatement();
             System.out.println(connection.isClosed());
