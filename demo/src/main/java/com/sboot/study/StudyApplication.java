@@ -1,5 +1,6 @@
 package com.sboot.study;
 
+import com.sboot.study.kafka.KafkaProducer;
 import com.sboot.study.redis.RedisService;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
@@ -8,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -24,15 +26,18 @@ public class StudyApplication implements CommandLineRunner {
 
     @Autowired
     RedisService redisService;
+    @Autowired
+    KafkaProducer producer;
 
     public static void main(String[] args) {
         SpringApplication.run(StudyApplication.class, args);
     }
 
     //每30秒执行一次
-//    @Scheduled(fixedRate = 1000 * 30)
+    @Scheduled(fixedRate = 1000 * 3)
     public void reportCurrentTime(){
         System.out.println ("Scheduling Tasks Examples: The time is now " + dateFormat ().format (new Date()));
+        producer.sendMessage("topic1","haha");
     }
 
     private SimpleDateFormat dateFormat(){
