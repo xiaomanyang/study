@@ -2,8 +2,11 @@ package com.sboot.study;
 
 import com.sboot.study.kafka.KafkaProducer;
 import com.sboot.study.redis.RedisService;
-import lombok.extern.slf4j.Slf4j;
+import org.apache.kafka.clients.producer.Producer;
+import org.apache.kafka.clients.producer.ProducerRecord;
 import org.mybatis.spring.annotation.MapperScan;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,14 +19,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Properties;
 
 @SpringBootApplication
 @EnableScheduling
 @MapperScan("com.sboot.study.dao")
-@Slf4j
 public class StudyApplication implements CommandLineRunner {
-
+    Logger log = LoggerFactory.getLogger(StudyApplication.class);
     @Autowired
     RedisService redisService;
     @Autowired
@@ -36,8 +38,8 @@ public class StudyApplication implements CommandLineRunner {
     //每30秒执行一次
     @Scheduled(fixedRate = 1000 * 3)
     public void reportCurrentTime(){
-        System.out.println ("Scheduling Tasks Examples: The time is now " + dateFormat ().format (new Date()));
-        producer.sendMessage("topic1","haha");
+//        System.out.println ("Scheduling Tasks Examples: The time is now " + dateFormat ().format (new Date()));
+//        producer.sendMessage("topic1","haha");
     }
 
     private SimpleDateFormat dateFormat(){
@@ -55,6 +57,9 @@ public class StudyApplication implements CommandLineRunner {
         log.debug("-------------------------log");
         log.info("hhhhhhhhhhhhhhhhhhh");
         redisService.setValue();
+        Properties props = new Properties();
+        Producer<String, String> producer = new org.apache.kafka.clients.producer.KafkaProducer<String, String>(props);
+        producer.send(new ProducerRecord<>("mysf", "key1", "value1"));
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = (Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/wsjc?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC",
