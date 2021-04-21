@@ -1,6 +1,7 @@
 package com.sboot.study.kafka;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
@@ -13,9 +14,8 @@ import org.springframework.stereotype.Service;
  * @create 2019-10-12 11:37
  */
 @Service
-@Slf4j
 public class KafkaProducer {
-
+    Logger log = LoggerFactory.getLogger(KafkaConsumer.class);
     private final KafkaTemplate<String, String> template;
 
     @Autowired

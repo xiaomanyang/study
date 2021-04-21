@@ -1,6 +1,8 @@
 package com.sboot.study.server;
 
-import lombok.extern.slf4j.Slf4j;
+import com.sboot.study.kafka.KafkaConsumer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
@@ -18,8 +20,8 @@ import java.util.concurrent.CopyOnWriteArraySet;
  */
 @ServerEndpoint("/websocket/{sid}")
 @Component
-@Slf4j
 public class WebSocketServer {
+    Logger log = LoggerFactory.getLogger(KafkaConsumer.class);
     //静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
     private static int onlineCount = 0;
     //concurrent包的线程安全Set，用来存放每个客户端对应的MyWebSocket对象。
