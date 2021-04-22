@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo2/demo2.iml" filepath="$PROJECT_DIR$/demo2/demo2.iml" />
       <module fileurl="file://$PROJECT_DIR$/netflixp/discory-server/discoryserver.iml" filepath="$PROJECT_DIR$/netflixp/discory-server/discoryserver.iml" />
       <module fileurl="file://$PROJECT_DIR$/netflixp/netflixp.iml" filepath="$PROJECT_DIR$/netflixp/netflixp.iml" />
       <module fileurl="file://$PROJECT_DIR$/netflixp/user-server/userserver.iml" filepath="$PROJECT_DIR$/netflixp/user-server/userserver.iml" />

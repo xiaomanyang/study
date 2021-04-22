@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="clouddemo" />
         <module name="demo" />
+        <module name="demo2" />
         <module name="discoryserver" />
         <module name="discovery" />
         <module name="userserver" />
@@ -16,6 +17,7 @@
     <bytecodeTargetLevel>
       <module name="clouddemo" target="1.8" />
       <module name="demo" target="1.8" />
+      <module name="demo2" target="1.8" />
       <module name="discoryserver" target="1.8" />
       <module name="discovery" target="1.8" />
       <module name="netflix" target="1.5" />
