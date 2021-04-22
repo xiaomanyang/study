@@ -3,11 +3,23 @@
 spring:
   application:
     name: userserver
-
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://49.233.124.162:3306/cloudstudy?useUnicode=true&useSSL=false&characterEncoding=utf8
+    username: root
+    password: Magicinn@tencentmysql
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/,http://localhost:8763/eureka/
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+logging:
+  level:
+    com.wcl.userserver: debug
+  file:
+    name: userserver.log
 
 ---
 spring:
