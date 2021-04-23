@@ -1,6 +1,6 @@
 package com.wcl.userserver.sys.service;
 
-import com.wcl.userserver.sys.entity.Role;
+import com.wcl.entity.Role;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

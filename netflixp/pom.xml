@@ -8,6 +8,9 @@
         <module>discory-server</module>
         <module>user-server</module>
         <module>product-server</module>
+        <module>entity</module>
+        <module>entity</module>
+        <module>pojo</module>
     </modules>
 
     <parent>
