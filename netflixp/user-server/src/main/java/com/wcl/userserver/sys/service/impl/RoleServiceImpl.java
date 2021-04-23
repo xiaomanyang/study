@@ -1,6 +1,6 @@
 package com.wcl.userserver.sys.service.impl;
 
-import com.wcl.userserver.sys.entity.Role;
+import com.wcl.entity.Role;
 import com.wcl.userserver.sys.mapper.RoleMapper;
 import com.wcl.userserver.sys.service.IRoleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

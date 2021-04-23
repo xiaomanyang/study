@@ -1,10 +1,16 @@
 package com.wcl.userserver.sys.controller;
 
 
-import com.wcl.userserver.sys.entity.User;
+import com.wcl.entity.User;
 import com.wcl.userserver.sys.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * <p>
@@ -18,12 +24,22 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/sys/user")
 public class UserController {
 
+    @Value("${server.port}")
+    String port;
+
     @Autowired
     public IUserService iUserService;
+    @Autowired
+    public RedisTemplate<String, Object> redisTemplate;
 
     @GetMapping("get/{id}")
     public User getById(@PathVariable("id") Integer id){
-        return iUserService.getById(id);
+        redisTemplate.opsForValue().increment(String.valueOf(id));
+        User user = iUserService.getById(id);
+        HttpSession session = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest().getSession();
+        session.setAttribute(user.getAccount(), user);
+        user.setUname(port+user.getUname());
+        return user;
     }
 
     @GetMapping("save")
