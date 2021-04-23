@@ -1,19 +1,17 @@
-package com.wcl.userserver;
+package com.wcl.productserver;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 @SpringBootApplication
 @EnableEurekaClient
-@MapperScan("com.wcl.userserver.sys.mapper")
-@EnableRedisHttpSession
-public class UserApplication {
+@MapperScan("com.wcl.productserver.sys.mapper")
+public class ProductApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(UserApplication.class, args);
+        SpringApplication.run(ProductApplication.class, args);
     }
 
 }

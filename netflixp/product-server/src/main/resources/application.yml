@@ -2,23 +2,12 @@
 
 spring:
   application:
-    name: userserver
+    name: productserver
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://49.233.124.162:3306/cloudstudy?useUnicode=true&useSSL=false&characterEncoding=utf8
     username: root
     password: Magicinn@tencentmysql
-  redis:
-    database: 0
-    host: 49.233.124.162
-    port: 6379
-    password: Magicinn@tencentredis
-    timeout: 20000
-    lettuce:
-      pool:
-        max-active: 8 #最大连接数
-        max-idle: 8  #最大空闲数
-        min-idle: 0 #最小空闲数
 eureka:
   client:
     serviceUrl:
@@ -36,10 +25,10 @@ logging:
 spring:
   profiles: peer1
 server:
-  port: 8081
+  port: 8091
 
 ---
 spring:
   profiles: peer2
 server:
-  port: 8082
+  port: 8092
