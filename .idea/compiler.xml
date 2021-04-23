@@ -11,6 +11,8 @@
         <module name="demo2" />
         <module name="discoryserver" />
         <module name="discovery" />
+        <module name="pojo" />
+        <module name="productserver" />
         <module name="userserver" />
       </profile>
     </annotationProcessing>
@@ -20,8 +22,11 @@
       <module name="demo2" target="1.8" />
       <module name="discoryserver" target="1.8" />
       <module name="discovery" target="1.8" />
+      <module name="entity" target="1.8" />
       <module name="netflix" target="1.5" />
       <module name="netflixp" target="1.8" />
+      <module name="pojo" target="1.8" />
+      <module name="productserver" target="1.8" />
       <module name="userserver" target="1.8" />
     </bytecodeTargetLevel>
   </component>
