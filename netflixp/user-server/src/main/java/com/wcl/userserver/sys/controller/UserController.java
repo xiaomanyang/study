@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  * @since 2021-04-22
  */
 @RestController
-@RequestMapping("/sys/user")
+@RequestMapping("/user")
 public class UserController {
 
     @Value("${server.port}")
@@ -49,6 +49,13 @@ public class UserController {
         user.setUname("manyang");
         user.setUpwd("habuha");
         return iUserService.save(user);
+    }
+
+    @GetMapping("session")
+    public User session(){
+        HttpSession session = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest().getSession();
+        User user = (User)session.getAttribute("18765862338");
+        return user;
     }
 }
 

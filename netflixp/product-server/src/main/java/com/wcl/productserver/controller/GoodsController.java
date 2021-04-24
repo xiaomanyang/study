@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * <p>
@@ -28,6 +32,12 @@ public class GoodsController {
     @GetMapping("user/{id}")
     public User getUser(@PathVariable("id") Integer id){
         return iUserService.getUser(id);
+    }
+
+    @GetMapping("session")
+    public User sessionUser(){
+        HttpSession session = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest().getSession();
+        return (User)session.getAttribute("18765862338");
     }
 }
 
