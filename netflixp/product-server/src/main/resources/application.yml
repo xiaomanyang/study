@@ -31,7 +31,9 @@ logging:
     com.wcl.userserver: debug
   file:
     name: userserver.log
-
+feign:
+  hystrix:
+    enabled: true
 ---
 spring:
   profiles: peer1

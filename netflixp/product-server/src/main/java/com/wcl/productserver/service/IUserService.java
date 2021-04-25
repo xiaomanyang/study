@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author wcl
  * @since 2021-04-23
  */
-@FeignClient(value = "userserver", path = "/sys/user", fallback = IUserServiceImpl.class)
+@FeignClient(value = "userserver", path = "/user", fallback = IUserServiceImpl.class)
 public interface IUserService {
 
     @RequestMapping(method = RequestMethod.GET, value = "/get/{id}")
